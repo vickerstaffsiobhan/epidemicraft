@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 # make array of all susceptible population
-population = np.zeros( (18, 18) )
+population = np.zeros( (100, 100) )
 
 # random disease outbreak somewhere in the population
 outbreak = [0,0]
@@ -26,7 +26,7 @@ cm = LinearSegmentedColormap.from_list("my_colors", colors, N=3)
 beta = 0.3
 gamma = 0.05
  # make array of all susceptible population
-population = np.zeros( (18, 18) )
+population = np.zeros( (100, 100) )
     
     # random disease outbreak somewhere in the population
 outbreak = [0,0]
@@ -34,7 +34,7 @@ population[outbreak[0],outbreak[1]] = 1
     # at each time point: 
     # infected cell can infect its neighbours
   
-for time in range(50):
+for time in range(100):
        
         # find infected points
         infectedIndex = np.where(population==1)
@@ -48,7 +48,7 @@ for time in range(50):
                 for yNeighbour in range(y-1,y+2):
                     if (xNeighbour,yNeighbour) != (x,y):
                         # make sure I don't fall off an edge
-                        if xNeighbour != -1 and yNeighbour != -1 and xNeighbour!=18 and yNeighbour!=18:
+                        if xNeighbour != -1 and yNeighbour != -1 and xNeighbour!=100 and yNeighbour!=100:
                             if population[xNeighbour,yNeighbour]==0:
                                 population[xNeighbour,yNeighbour]=np.random.choice(range(2),1,p=[1-beta,beta])[0]
             
